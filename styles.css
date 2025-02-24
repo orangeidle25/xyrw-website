@@ -115,127 +115,80 @@
     align-self: auto;
     order: 0;
   }
-.holographic-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #000;
+
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #f3f3f3;
 }
 
-.holographic-card {
-  width: 300px;
-  height: 200px;
-  background: #111;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  border-radius: 15px;
-  transition: all 0.5s ease;
-}
-
-.holographic-card h2 {
-  color: #0ff;
-  font-size: 2rem;
-  position: relative;
-  z-index: 2;
-}
-
-.holographic-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    0deg, 
-    transparent, 
-    transparent 30%, 
-    rgba(0,255,255,0.3)
-  );
-  transform: rotate(-45deg);
-  transition: all 0.5s ease;
-  opacity: 0;
-}
-
-.holographic-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(0,255,255,0.5);
-}
-
-.holographic-card:hover::before {
-  opacity: 1;
-  transform: rotate(-45deg) translateY(100%);
-}
-
-
-  .button {
-    border: none;
-    color: white;
-    padding: 16px 32px;
+#consentBox {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
+}
+
+#consentBox.hide {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+::selection {
+    color: #fff;
+    background: #229a0f;
+}
+
+#consentContent p {
+    color: #858585;
+    margin: 10px 0 20px 0;
+}
+
+#consentContent .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.consentButton,
+.rejectButton {
+    padding: 12px 30px;
+    border: none;
+    outline: none;
+    color: #fff;
     font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
+    font-weight: 500;
+    border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .button1 {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #000000;
-  }
-  
-  .button1:hover {
-    background-color: #000000;
-    color: white;
-  }
-  
-  .button2 {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #000000;
-  }
-  
-  .button2:hover {
-    background-color: #000000;
-    color: white;
-  }
-  
-  .button3 {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #000000;
-  }
-  
-  .button3:hover {
-    background-color: #000000;
-    color: white;
-  }
-  
-  .button4 {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #000000;
-  }
-  
-  .button4:hover {
-    background-color: #000000;
-    color: white;
-  }
-  
-  .button5 {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #000000;
-  }
-  
-  .button5:hover {
-    background-color: #000000;
-    color: white;
-  }
+    transition: all 0.3s ease;
+}
+
+.consentButton {
+    background: #2a910b;
+    margin-right: 10px;
+}
+
+.rejectButton {
+    color: #111211;
+    background: transparent;
+    border: 2px solid #099c2c;
+    text-decoration: none;
+}
+
+#consentBox img {
+    max-width: 90px;
+}
+
+#consentHeader {
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 10px;
+}
