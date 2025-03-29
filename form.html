@@ -102,10 +102,10 @@
             fields: [
               { name: "Roblox Username", value: data.robloxUsername || "N/A", inline: true },
               { name: "Discord Username", value: data.discordUsername || "N/A", inline: true },
-              { name: "Motivation", value: data.motivation || "N/A" },
-              { name: "Experience", value: data.experience || "N/A" },
-              { name: "Availability", value: data.availability || "N/A", inline: true },
-              { name: "Additional Comments", value: data.additionalComments || "N/A" }
+              { name: "The user's motivation", value: data.motivation || "N/A" },
+              { name: "The user's experience", value: data.experience || "N/A" },
+              { name: "When is the user available to moderate. (Week timeline)", value: data.availability || "N/A", inline: true },
+              { name: "Additional Comments by the user", value: data.additionalComments || "N/A" }
             ],
             timestamp: new Date().toISOString()
           }
@@ -118,9 +118,8 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(discordPayload)
         });
-        alert("Application submitted successfully!");
-        form.reset();
-        if (window.hcaptcha) window.hcaptcha.reset();
+        // Redirect the user on successful submission
+        window.location.href = "completed.html";
       } catch (error) {
         console.error('Submission Error:', error);
         alert("There was an error submitting your application. Please try again.");
