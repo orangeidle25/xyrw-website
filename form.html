@@ -18,7 +18,7 @@
 <body>
   <div class="container">
     <h1>Moderator Application</h1>
-    <p>Apply to become a moderator for the xyrw Discord server. We're a Roblox clothing community that thrives on creativity and collaboration. Please answer the following questions and we will review your application.</p>
+    <p>Apply to become a moderator for the xyrw Discord server. We are a Roblox clothing community that thrives on creativity and collaboration. Please answer the following questions and we will review your application.</p>
     <form id="applicationForm">
       <!-- Roblox Username Field -->
       <div class="form-group">
@@ -97,13 +97,13 @@
         content: "A new moderator application has been submitted!",
         embeds: [
           {
-            title: "Moderator Application",
+            title: "New Moderator Application",
             color: 5814783,
             fields: [
               { name: "Roblox Username", value: data.robloxUsername || "N/A", inline: true },
               { name: "Discord Username", value: data.discordUsername || "N/A", inline: true },
-              { name: "The user's motivation", value: data.motivation || "N/A" },
-              { name: "The user's experience", value: data.experience || "N/A" },
+              { name: "The user's motivation to be moderator", value: data.motivation || "N/A" },
+              { name: "The user's experience with moderation", value: data.experience || "N/A" },
               { name: "When is the user available to moderate. (Week timeline)", value: data.availability || "N/A", inline: true },
               { name: "Additional Comments by the user", value: data.additionalComments || "N/A" }
             ],
@@ -118,7 +118,6 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(discordPayload)
         });
-        // Redirect the user on successful submission
         window.location.href = "completed.html";
       } catch (error) {
         console.error('Submission Error:', error);
