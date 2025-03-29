@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styleform.css">
+  <title>Moderator application form</title>
+  <link rel="icon" type="image/x-icon" href="https://i.imghippo.com/files/MSGw1109U.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DPYMNZ8Y6Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DPYMNZ8Y6Q');
+  </script>
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Moderator Application</h1>
+    <p>Apply to become a moderator for the xyrw Discord server. We're a Roblox clothing community that thrives on creativity and collaboration. Please answer the following questions and we will review your application.</p>
+    <form id="applicationForm">
+      <!-- Roblox Username Field -->
+      <div class="form-group">
+        <label for="robloxUsername">Roblox Username</label>
+        <input type="text" id="robloxUsername" name="robloxUsername" required placeholder="Enter your Roblox username">
+      </div>
+      
+      <!-- Discord Username Field -->
+      <div class="form-group">
+        <label for="discordUsername">Discord Username</label>
+        <input type="text" id="discordUsername" name="discordUsername" required placeholder="Enter your Discord username">
+      </div>
+      
+      <!-- Moderator Motivation -->
+      <div class="form-group">
+        <label for="motivation">Why do you want to be a moderator?</label>
+        <textarea id="motivation" name="motivation" required rows="4" placeholder="Tell us what inspires you to help our community"></textarea>
+      </div>
+      
+      <!-- Previous Experience -->
+      <div class="form-group">
+        <label for="experience">Do you have any previous moderation or community management experience?</label>
+        <textarea id="experience" name="experience" required rows="4" placeholder="Describe your experience (if any)"></textarea>
+      </div>
+      
+      <!-- Availability -->
+      <div class="form-group">
+        <label for="availability">How many hours per week can you commit to moderation?</label>
+        <select id="availability" name="availability" required>
+          <option value="">Select an option</option>
+          <option value="less than 5 hours">Less than 5 hours</option>
+          <option value="5-10 hours">5-10 hours</option>
+          <option value="10-20 hours">10-20 hours</option>
+          <option value="more than 20 hours">More than 20 hours</option>
+        </select>
+      </div>
+      
+      <!-- Additional Comments -->
+      <div class="form-group">
+        <label for="additionalComments">Anything else you’d like us to know?</label>
+        <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Additional comments..."></textarea>
+      </div>
+      
+      <!-- hCaptcha -->
+      <div class="form-group">
+        <div class="h-captcha" data-sitekey="96a039dc-70f8-487e-8d3c-ab508ef07ec2"></div>
+      </div>
+      
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit">Submit Application</button>
+      </div>
+    </form>
+  </div>
+  
+  <!-- JavaScript to handle form submission -->
+  <script>
+    const form = document.getElementById("applicationForm");
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      
+      // Disable submit button to avoid duplicate submissions
+      const submitButton = form.querySelector("button[type='submit']");
+      submitButton.disabled = true;
+      submitButton.innerText = "Submitting...";
+      
+      // Prepare the form data
+      const formData = new FormData(form);
+      
+      // IMPORTANT: Replace the placeholder URL below with the URL of your deployed Google Apps Script web app.
+      // The script should be set up to receive POST requests and write entries to your Google Sheets file.
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwkGVxOcf75qOTiqCdOy7HrP6vOTrBTfIYizmTLOfVR7f0KzcY7A8Nw23wzZsqVYK7t/exec';
+      
+      try {
+        const response = await fetch(scriptURL, {
+          method: 'POST',
+          body: formData
+        });
+        // Expecting a JSON response from your Apps Script 'doPost' handler.
+        const result = await response.json();
+        if (result.status === 'success') {
+          alert("Application submitted successfully!");
+          form.reset();
+          // Optionally, you can reset the hCaptcha widget (if configured)
+          if (window.hcaptcha) window.hcaptcha.reset();
+        } else {
+          alert("There was an error submitting your application. Please try again.");
+        }
+      } catch (error) {
+        console.error('Submission Error:', error);
+        alert("An error occurred while submitting. Please try again.");
+      } finally {
+        submitButton.disabled = false;
+        submitButton.innerText = "Submit Application";
+      }
+    });
+  </script>
+</body>
+</html>
