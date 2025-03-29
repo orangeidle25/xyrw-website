@@ -74,42 +74,56 @@
     </form>
   </div>
   
-  <!-- JavaScript to handle form submission -->
   <script>
     const form = document.getElementById("applicationForm");
     form.addEventListener("submit", async function(e) {
       e.preventDefault();
       
-      // Disable submit button to avoid duplicate submissions
+      // Disable the submit button to avoid duplicate submissions
       const submitButton = form.querySelector("button[type='submit']");
       submitButton.disabled = true;
       submitButton.innerText = "Submitting...";
-      
-      // Prepare the form data
+
+      // Gather form data and convert to an object
       const formData = new FormData(form);
+      let data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
       
-      // IMPORTANT: Replace the placeholder URL below with the URL of your deployed Google Apps Script web app.
-      // The script should be set up to receive POST requests and write entries to your Google Sheets file.
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbz77CfyV5jNBcyYir1J2VDMI13WcccqXFyQAbAeD_WFMCbjedCbRZQ7-BQueHW2TkEH/exec';
-      
+      // Prepare the Discord payload
+      const discordWebhookURL = 'https://discord.com/api/webhooks/1355355133004746953/1_ndXF5qpwKZ76oEfc_AiuS-zDbg8CMkek6W4NT4x6NoJ-0Cx0WdnKxMwhdByIw7FoIk';
+      const discordPayload = {
+        content: "A new moderator application has been submitted!",
+        embeds: [
+          {
+            title: "Moderator Application",
+            color: 5814783,
+            fields: [
+              { name: "Roblox Username", value: data.robloxUsername || "N/A", inline: true },
+              { name: "Discord Username", value: data.discordUsername || "N/A", inline: true },
+              { name: "Motivation", value: data.motivation || "N/A" },
+              { name: "Experience", value: data.experience || "N/A" },
+              { name: "Availability", value: data.availability || "N/A", inline: true },
+              { name: "Additional Comments", value: data.additionalComments || "N/A" }
+            ],
+            timestamp: new Date().toISOString()
+          }
+        ]
+      };
+  
       try {
-        const response = await fetch(scriptURL, {
+        await fetch(discordWebhookURL, {
           method: 'POST',
-          body: formData
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(discordPayload)
         });
-        // Expecting a JSON response from your Apps Script 'doPost' handler.
-        const result = await response.json();
-        if (result.status === 'success') {
-          alert("Application submitted successfully!");
-          form.reset();
-          // Optionally, you can reset the hCaptcha widget (if configured)
-          if (window.hcaptcha) window.hcaptcha.reset();
-        } else {
-          alert("There was an error submitting your application. Please try again.");
-        }
+        alert("Application submitted successfully!");
+        form.reset();
+        if (window.hcaptcha) window.hcaptcha.reset();
       } catch (error) {
         console.error('Submission Error:', error);
-        alert("An error occurred while submitting. Please try again.");
+        alert("There was an error submitting your application. Please try again.");
       } finally {
         submitButton.disabled = false;
         submitButton.innerText = "Submit Application";
