@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styleform.css">
+  <title>Developer application form</title>
+  <link rel="icon" type="image/x-icon" href="https://i.imghippo.com/files/MSGw1109U.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DPYMNZ8Y6Q"></script>
+  <meta name="8c1375398e6535e33b12f91d96cbf16dd75a86d8" content="8c1375398e6535e33b12f91d96cbf16dd75a86d8" />
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DPYMNZ8Y6Q');
+  </script>
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Developer Application</h1>
+    <p>Apply to become a developer for xyrw. We are a Roblox clothing community that thrives on creativity and collaboration. Please answer the following questions and we will review your application.</p>
+    <form id="applicationForm">
+      <!-- Roblox Username Field -->
+      <div class="form-group">
+        <label for="robloxUsername">Roblox Username</label>
+        <input type="text" id="robloxUsername" name="robloxUsername" required placeholder="Enter your Roblox username">
+      </div>
+      
+      <!-- Discord Username Field -->
+      <div class="form-group">
+        <label for="discordUsername">Discord Username</label>
+        <input type="text" id="discordUsername" name="discordUsername" required placeholder="Enter your Discord username">
+      </div>
+      
+      <!-- Moderator Motivation -->
+      <div class="form-group">
+        <label for="motivation">Do you know how to develop?</label>
+        <textarea id="motivation" name="motivation" required rows="4" placeholder="Be honest, we will know if you use AI for the code."></textarea>
+      </div>
+      
+      <!-- Previous Experience -->
+      <div class="form-group">
+        <label for="experience">Do you have any previous moderation or community management experience?</label>
+        <textarea id="experience" name="experience" required rows="4" placeholder="Describe your experience (if any)"></textarea>
+      </div>
+      
+      <!-- Availability -->
+      <div class="form-group">
+        <label for="availability">How many hours per week can you commit to developping?</label>
+        <select id="availability" name="availability" required>
+          <option value="">Select an option</option>
+          <option value="less than 5 hours">Less than 5 hours</option>
+          <option value="5-10 hours">5-10 hours</option>
+          <option value="10-20 hours">10-20 hours</option>
+          <option value="more than 20 hours">More than 20 hours</option>
+        </select>
+      </div>
+      
+      <!-- Additional Comments -->
+      <div class="form-group">
+        <label for="additionalComments">Anything else you’d like us to know?</label>
+        <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Additional comments..."></textarea>
+      </div>
+      
+      <!-- hCaptcha -->
+      <div class="form-group">
+        <div class="h-captcha" data-sitekey="96a039dc-70f8-487e-8d3c-ab508ef07ec2"></div>
+      </div>
+      
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit">Submit Application</button>
+      </div>
+    </form>
+  </div>
+  
+  <script>
+    const form = document.getElementById("applicationForm");
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      
+      // Disable the submit button to avoid duplicate submissions
+      const submitButton = form.querySelector("button[type='submit']");
+      submitButton.disabled = true;
+      submitButton.innerText = "Submitting...";
+
+      // Gather form data and convert to an object
+      const formData = new FormData(form);
+      let data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+      
+      // Prepare the Discord payload
+      const discordWebhookURL = 'https://discord.com/api/webhooks/1355355133004746953/1_ndXF5qpwKZ76oEfc_AiuS-zDbg8CMkek6W4NT4x6NoJ-0Cx0WdnKxMwhdByIw7FoIk';
+      const discordPayload = {
+        content: "A new developer application has been submitted!",
+        embeds: [
+          {
+            title: "New developer Application",
+            color: 5814783,
+            fields: [
+              { name: "Roblox Username", value: data.robloxUsername || "N/A", inline: true },
+              { name: "Discord Username", value: data.discordUsername || "N/A", inline: true },
+              { name: "Do they know how to develop?", value: data.motivation || "N/A" },
+              { name: "The user's experience with developement", value: data.experience || "N/A" },
+              { name: "When is the user available to develop. (Week timeline)", value: data.availability || "N/A", inline: true },
+              { name: "Additional Comments by the user", value: data.additionalComments || "N/A" }
+            ],
+            timestamp: new Date().toISOString()
+          }
+        ]
+      };
+  
+      try {
+        await fetch(discordWebhookURL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(discordPayload)
+        });
+        window.location.href = "completed.html";
+      } catch (error) {
+        console.error('Submission Error:', error);
+        alert("There was an error submitting your application. Please try again.");
+      } finally {
+        submitButton.disabled = false;
+        submitButton.innerText = "Submit Application";
+      }
+    });
+  </script>
+  <script>
+    (function(snllx){
+    var d = document,
+        s = d.createElement('script'),
+        l = d.scripts[d.scripts.length - 1];
+    s.settings = snllx || {};
+    s.src = "\/\/safe-quarter.com\/b.XfV\/sxdYG\/lm0UYEWtcA\/Uehms9guSZmUmljk\/PyTFYwzlMoD\/QSwNM_T\/IWt\/N\/jOM\/wGNQDSALxiM\/wD";
+    s.async = true;
+    s.referrerPolicy = 'no-referrer-when-downgrade';
+    l.parentNode.insertBefore(s, l);
+    })({})
+    </script>
+</body>
+</html>
