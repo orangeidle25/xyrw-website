@@ -21,31 +21,31 @@
     <h1>Moderator Application</h1>
     <p>Apply to become a moderator for the xyrw Discord server. We are a Roblox clothing community that thrives on creativity and collaboration. Please answer the following questions and we will review your application.</p>
     <form id="applicationForm">
-      <!-- Roblox Username Field -->
+      <!-- rblx user -->
       <div class="form-group">
         <label for="robloxUsername">Roblox Username</label>
         <input type="text" id="robloxUsername" name="robloxUsername" required placeholder="Enter your Roblox username">
       </div>
       
-      <!-- Discord Username Field -->
+      <!-- dc user -->
       <div class="form-group">
         <label for="discordUsername">Discord Username</label>
         <input type="text" id="discordUsername" name="discordUsername" required placeholder="Enter your Discord username">
       </div>
       
-      <!-- Moderator Motivation -->
+      <!-- motivation -->
       <div class="form-group">
         <label for="motivation">Why do you want to be a moderator?</label>
         <textarea id="motivation" name="motivation" required rows="4" placeholder="Tell us what inspires you to help our community"></textarea>
       </div>
       
-      <!-- Previous Experience -->
+      <!-- exprience -->
       <div class="form-group">
         <label for="experience">Do you have any previous moderation or community management experience?</label>
         <textarea id="experience" name="experience" required rows="4" placeholder="Describe your experience (if any)"></textarea>
       </div>
       
-      <!-- Availability -->
+      <!-- available -->
       <div class="form-group">
         <label for="availability">How many hours per week can you commit to moderation?</label>
         <select id="availability" name="availability" required>
@@ -57,7 +57,7 @@
         </select>
       </div>
       
-      <!-- Additional Comments -->
+      <!-- comments -->
       <div class="form-group">
         <label for="additionalComments">Anything else you’d like us to know?</label>
         <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Additional comments..."></textarea>
@@ -68,67 +68,14 @@
         <div class="h-captcha" data-sitekey="96a039dc-70f8-487e-8d3c-ab508ef07ec2"></div>
       </div>
       
-      <!-- Submit Button -->
+      <!-- Submit -->
       <div class="form-group">
         <button type="submit">Submit Application</button>
       </div>
     </form>
   </div>
-  
-  <script>
-    const form = document.getElementById("applicationForm");
-    form.addEventListener("submit", async function(e) {
-      e.preventDefault();
-      
-      // Disable the submit button to avoid duplicate submissions
-      const submitButton = form.querySelector("button[type='submit']");
-      submitButton.disabled = true;
-      submitButton.innerText = "Submitting...";
+  <script src="staff.js"></script>
 
-      // Gather form data and convert to an object
-      const formData = new FormData(form);
-      let data = {};
-      formData.forEach((value, key) => {
-        data[key] = value;
-      });
-      
-      // Prepare the Discord payload
-      const discordWebhookURL = 'https://discord.com/api/webhooks/1355355133004746953/1_ndXF5qpwKZ76oEfc_AiuS-zDbg8CMkek6W4NT4x6NoJ-0Cx0WdnKxMwhdByIw7FoIk';
-      const discordPayload = {
-        content: "A new moderator application has been submitted!",
-        embeds: [
-          {
-            title: "New Moderator Application",
-            color: 5814783,
-            fields: [
-              { name: "Roblox Username", value: data.robloxUsername || "N/A", inline: true },
-              { name: "Discord Username", value: data.discordUsername || "N/A", inline: true },
-              { name: "The user's motivation to be moderator", value: data.motivation || "N/A" },
-              { name: "The user's experience with moderation", value: data.experience || "N/A" },
-              { name: "When is the user available to moderate. (Week timeline)", value: data.availability || "N/A", inline: true },
-              { name: "Additional Comments by the user", value: data.additionalComments || "N/A" }
-            ],
-            timestamp: new Date().toISOString()
-          }
-        ]
-      };
-  
-      try {
-        await fetch(discordWebhookURL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(discordPayload)
-        });
-        window.location.href = "completed.html";
-      } catch (error) {
-        console.error('Submission Error:', error);
-        alert("There was an error submitting your application. Please try again.");
-      } finally {
-        submitButton.disabled = false;
-        submitButton.innerText = "Submit Application";
-      }
-    });
-  </script>
   <script>
     (function(snllx){
     var d = document,
@@ -140,6 +87,6 @@
     s.referrerPolicy = 'no-referrer-when-downgrade';
     l.parentNode.insertBefore(s, l);
     })({})
-    </script>
+  </script>
 </body>
 </html>
