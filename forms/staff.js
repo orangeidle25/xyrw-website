@@ -30,9 +30,12 @@
             fields: [
               { name: "Roblox Username", value: data.robloxUsername || "N/A", inline: true },
               { name: "Discord Username", value: data.discordUsername || "N/A", inline: true },
+              { name: "Age", value: data.age || "N/A", inline: true },
+              { name: "Timezone", value: data.tmz || "N/A", inline: true },
               { name: "The user's motivation to be moderator", value: data.motivation || "N/A" },
               { name: "The user's experience with moderation", value: data.experience || "N/A" },
               { name: "When is the user available to moderate. (Week timeline)", value: data.availability || "N/A", inline: true },
+              { name: "English level of user", value: data.english || "N/A", inline: true },
               { name: "Additional Comments by the user", value: data.additionalComments || "N/A" }
             ],
             timestamp: new Date().toISOString()
