@@ -32,6 +32,18 @@
         <label for="discordUsername">Discord Username</label>
         <input type="text" id="discordUsername" name="discordUsername" required placeholder="Enter your Discord username">
       </div>
+
+      <!-- tmz -->
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" id="age" name="age" required placeholder="Enter your age">
+      </div>
+
+      <!-- age -->
+      <div class="form-group">
+        <label for="tmz">What is your timezone? (Ex: UTC-5, UTC+2, GMT...)</label>
+        <input type="text" id="tmz" name="tmz" required placeholder="Enter your timezone">
+      </div>
       
       <!-- motivation -->
       <div class="form-group">
@@ -45,6 +57,24 @@
         <textarea id="experience" name="experience" required rows="4" placeholder="Describe your experience (if any)"></textarea>
       </div>
       
+      <!-- English level -->
+      <div class="form-group">
+        <label for="english">On a scale of 10, how fluently can you speak English? (10 being the best)</label>
+        <select id="english" name="english" required>
+          <option value="">Select an option</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
       <!-- available -->
       <div class="form-group">
         <label for="availability">How many hours per week can you commit to moderation?</label>
