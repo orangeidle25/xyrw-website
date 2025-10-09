@@ -3,38 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>xyrw website</title>
+  <title>Welcome to xyrw!</title>
   <link rel="icon" type="image/x-icon" href="https://i.imghippo.com/files/MSGw1109U.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DPYMNZ8Y6Q"></script>
   <script>
    window.dataLayer = window.dataLayer || [];
    function gtag(){dataLayer.push(arguments);}
    gtag('js', new Date());
-  
    gtag('config', 'G-DPYMNZ8Y6Q');
   </script>
   <meta name="8c1375398e6535e33b12f91d96cbf16dd75a86d8" content="8c1375398e6535e33b12f91d96cbf16dd75a86d8" />
   <style>
-    button {
-      border: none;
-      color: #333;
-      padding: 16px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      transition-duration: 0.4s;
-      cursor: pointer;
+    :root {
+      --primary-dark: #222222;
+      --secondary-dark: #333333;
+      --text-light: #f5f5f5;
+      --text-dark: #1a1a1a;
+      --accent-white: #ffffff;
+      --border-color: #444444;
     }
-    
-    button:hover {
-      background-color: #000000;
-      color: white;
-    }
-    
 
+    body {
+      font-family: 'Wix Madefor Text', sans-serif;
+      background-color: #1a1a1a;
+      color: var(--text-light);
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    h1, h4, .section-title, .ugc-placeholder, #popup-title {
+      font-family: 'Wix Madefor Text', sans-serif;
+    }
+    
+    h1 {
+      font-weight: 700;
+      font-size: 2.5em;
+    }
+    h4 {
+      font-weight: 400;
+      font-size: 1.1em;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 30px;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .flex-container.header { margin-bottom: 20px; }
+    .flex-container.items-display {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 30px;
+      gap: 25px;
+    }
+    .flex-items { margin: 0; text-decoration: none; color: inherit; }
+    .flex-items img {
+      width: 150px;
+      height: 150px;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      object-fit: cover;
+      border: 2px solid var(--border-color);
+    }
+    .flex-items img:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+      border-color: var(--accent-white);
+    }
+    .flex-container.header img {
+      border-radius: 50%;
+      border: 3px solid var(--accent-white);
+      margin-right: 15px;
+    }
+    .flex-container.header h1 { margin: 0; }
+    
+    .follower-count {
+      display: inline-block;
+      background-color: var(--primary-dark);
+      padding: 12px 24px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      font-family: 'Wix Madefor Text', sans-serif;
+      font-weight: 500;
+      font-size: 1.1em;
+      border: 1px solid var(--border-color);
+      text-decoration: none;
+      color: var(--text-light);
+      transition: background-color 0.3s;
+    }
+    .follower-count:hover {
+      background-color: var(--secondary-dark);
+    }
+    #member-count {
+      font-weight: 700;
+      font-size: 1.2em;
+    }
+    
+    /* --- New Section Styles --- */
+    .section {
+      width: 100%;
+      max-width: 1000px;
+      margin: 50px auto;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      font-size: 2em;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+    .section-title::before,
+    .section-title::after {
+      content: '';
+      flex: 1;
+      border-bottom: 2px solid var(--border-color);
+    }
+    .section-title:not(:empty)::before { margin-right: .5em; }
+    .section-title:not(:empty)::after { margin-left: .5em; }
+    .ugc-placeholder {
+      font-size: 1.2em;
+      color: #aaa;
+      margin-top: 30px;
+    }
+
+    /* --- Footer Icon Styles --- */
+    .button-container {
+      margin-top: 40px;
+      gap: 20px;
+    }
+    .social-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      background-color: var(--secondary-dark);
+      border: 2px solid var(--border-color);
+      border-radius: 50%;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .social-button:hover {
+      background-color: var(--accent-white);
+      border-color: var(--accent-white);
+    }
+    .social-icon {
+      height: 30px;
+      width: 30px;
+      object-fit: contain;
+      transition: filter 0.2s ease;
+    }
+    /* On hover, make the white icons turn black */
+    .social-button:hover .social-icon {
+      filter: invert(1);
+    }
+    
+    /* --- Popup Styles --- */
+    #popup-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8); display: none; justify-content: center;
+      align-items: center; z-index: 1000; backdrop-filter: blur(8px);
+    }
+    #popup-content {
+      background: var(--primary-dark); padding: 30px; border-radius: 15px;
+      text-align: center; position: relative; width: clamp(300px, 90vw, 400px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5); animation: fadeIn 0.3s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); }
+    }
+    #close-btn {
+      position: absolute; top: 15px; right: 20px; font-size: 32px;
+      font-weight: bold; cursor: pointer; color: #999; transition: color 0.2s ease;
+    }
+    #close-btn:hover { color: var(--text-light); }
+    #popup-image {
+      max-width: 90%; height: auto; border-radius: 10px; margin-bottom: 20px;
+      border: 2px solid var(--border-color);
+    }
+    #popup-title {
+      font-weight: 700; font-size: 1.8em; margin: 15px 0; color: var(--text-light); word-wrap: break-word;
+    }
+    .price-container {
+      display: flex; justify-content: center; align-items: center; gap: 10px;
+      margin: 20px 0; font-size: 28px; font-weight: 700; color: var(--text-light);
+    }
+    .price-container img {
+      width: 30px; height: 30px; filter: invert(100%);
+    }
+    .buy-button {
+      font-family: 'Wix Madefor Text', sans-serif;
+      background-color: var(--accent-white); color: var(--text-dark); padding: 15px 30px;
+      font-size: 18px; font-weight: 700; border-radius: 10px; margin-top: 20px;
+      box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+      cursor: pointer; border: none;
+    }
+    .buy-button:hover {
+      background-color: #e0e0e0; transform: translateY(-3px); color: var(--text-dark);
+    }
+    p.footer { color: #aaa; margin-top: 50px; font-size: 0.9em; }
   </style>
   <script>
     function discordpopup() {
@@ -43,46 +225,110 @@
   </script>
 </head>
 
-
 <body>
-<div class="flex-container">
+<div class="flex-container header">
     <img class="flex-items" src="https://tr.rbxcdn.com/180DAY-a4c1e0518835c39ec238f71c01a0fd58/150/150/Image/Webp/noFilter" alt="xyrw logo" width="100" height="100">
-    <h1 class="flex-items">  Official xyrw website</h1>
+    <h1 class="flex-items">Welcome to xyrw!</h1>
 </div>
-<h4>This is the section for classic shirts. All shirts are 7 robux. Click on the images for more details. If you want to buy UGC, click the button below.</h4>
-<a class="button button1" href="https://xyrw.shop/ugcshop.html"><button>UGC Shop</button></a>
+<h4>Our group currently sells shirts, but UGC releases are coming soon. Explore our shop below!</h4>
 
-  <div class="flex-container">
-      <h1>Shirts</h1>
-      <a class="flex-items" href="https://www.roblox.com/catalog/138385163667787/Not-all-of-us-are-going-to-make-it-out-alive"><img src="https://tr.rbxcdn.com/180DAY-3b11863c2f2ab6ad09e1f349450ffbee/420/420/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/95823933324032/xyrw-group-shirt-black"><img src="https://tr.rbxcdn.com/180DAY-5e83f3099b69830bae38dd01acf4084a/420/420/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/127814507066113/I-be-in-situation-FRFR"><img src="https://tr.rbxcdn.com/180DAY-6c0740d766aa368bf5dcd20354faf51f/420/420/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/89499313960261/Sand"><img src="https://tr.rbxcdn.com/180DAY-5c7cacda95f597132a91495093f2ac16/420/420/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/129281540485983/Random-Shirt"><img src="https://tr.rbxcdn.com/180DAY-a7746cd1ad016c8d0c012487c050eba2/420/420/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/118854326115278/This-person-is-very-special-black-shirt"><img src="https://tr.rbxcdn.com/180DAY-b059ad60b7318ba81f80ef4d0f024215/420/420/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/129589625018211/Nah-Id-Win"><img src="https://tr.rbxcdn.com/180DAY-49a9251d2cb8017e7c568768571f655a/420/420/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/121161462225962/xyrw-group-shirt-white"><img src="https://tr.rbxcdn.com/180DAY-024c6a72d7490efe1c2492e489cd0a3e/420/420/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/111047676476732/U-mad-buddy"><img src="https://tr.rbxcdn.com/180DAY-cf5868209f2f8eaffde5c60003a4cef5/150/150/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/112483118008145/Clipped"><img src="https://tr.rbxcdn.com/180DAY-17acff0cc39d4725fc4e017db92ed627/150/150/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/91990889801651/Stop-wearing"><img src="https://tr.rbxcdn.com/180DAY-14b5ee0aa364ba3c4428c7c4e5b60934/150/150/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/78218684470855/Girl-Bye"><img src="https://tr.rbxcdn.com/180DAY-ddb03638c247a6604f559badec352da8/150/150/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/110734820267703/Stop-wearing-UGC-limited"><img src="https://tr.rbxcdn.com/180DAY-d5be83f711619325982397632a08b14a/150/150/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/76428301569908/headless-fps-400"><img src="https://tr.rbxcdn.com/180DAY-276a5855858f24fce75210880a0d2835/150/150/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/140665248433058/Grey-Chill-Top"><img src="https://tr.rbxcdn.com/180DAY-7abba56ffda4791061fb3efdf48a81ea/150/150/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/125236916713739/Im-with-crazy"><img src="https://tr.rbxcdn.com/180DAY-525f5dfb382bc1ed57d918ad8ece1cf7/150/150/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/112927757002668/night"><img src="https://tr.rbxcdn.com/180DAY-b4d3fc7850aff0128d4034ecbedc309c/420/420/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/83746562642627/fading-away"><img src="https://tr.rbxcdn.com/180DAY-fd4f3177c332905ed4594b4f5e3d29db/420/420/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/103167584770429/Basic-T"><img src="https://tr.rbxcdn.com/180DAY-a33461e4cad7bfebc004d2163a7d6534/420/420/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
-      <a class="flex-items" href="https://www.roblox.com/catalog/93848088619897/anime"><img src="https://tr.rbxcdn.com/180DAY-4335274a98a3bf739c888a39cfe09f3a/420/420/Shirt/Webp/noFilter" alt="Shirt" width="128px" height="128px"></a>
+<a class="follower-count" href="https://www.roblox.com/groups/34833060/xyrw" target="_blank" rel="noopener noreferrer">
+  Join <span id="member-count">...</span> members on Roblox!
+</a>
+
+<div class="section">
+  <h2 class="section-title">Shirts</h2>
+  <div class="flex-container items-display">
+      <a class="flex-items" href="javascript:void(0);" onclick="openPopup('https://tr.rbxcdn.com/180DAY-024c6a72d7490efe1c2492e489cd0a3e/420/420/Shirt/Webp/noFilter', 'Xyrw Group Shirt WHITE', 'https://www.roblox.com/catalog/121161462225962/Xyrw-Group-Shirt-WHITE')"><img src="https://tr.rbxcdn.com/180DAY-024c6a72d7490efe1c2492e489cd0a3e/420/420/Shirt/Webp/noFilter" alt="Xyrw Group Shirt WHITE"></a>
+      <a class="flex-items" href="javascript:void(0);" onclick="openPopup('https://tr.rbxcdn.com/180DAY-5e83f3099b69830bae38dd01acf4084a/420/420/Shirt/Webp/noFilter', 'Xyrw Group Shirt BLACK', 'https://www.roblox.com/catalog/9583324032/Xyrw-Group-Shirt-BLACK')"><img src="https://tr.rbxcdn.com/180DAY-5e83f3099b69830bae38dd01acf4084a/420/420/Shirt/Webp/noFilter" alt="Xyrw Group Shirt BLACK"></a>
   </div>
+</div>
+
+<div class="section">
+  <h2 class="section-title">UGC</h2>
+  <p class="ugc-placeholder">Nothing here! Stay tuned for more.</p>
+</div>
   
-  <div>
-    <a class="button button1" href="https://www.roblox.com/communities/34833060/xyrw#!/about"><button>Main Roblox Group</button></a>
-    <a class="button button2" href="https://discord.gg/xddNH2B56P"><button>Discord Server</button></a> 
-    <a class="button button3" href="https://youtube.com/@xyrw_shorts"><button>YouTube Channel</button></a>
-    <a class="button button4" href="https://www.instagram.com/xyrw_reels/"> <button>Instagram</button></a>
-    <a class="button button4" href="https://tiktok.com/@xyrw_tiktok"><button>TikTok</button></a>
+<div class="flex-container button-container">
+    <a class="social-button" href="https://discord.gg/kbEMV2KxF6" target="_blank" rel="noopener noreferrer">
+        <img class="social-icon" src="https://static.vecteezy.com/system/resources/thumbnails/065/386/541/small_2x/discord-white-icon-logo-app-transparent-background-premium-social-media-design-for-digital-download-free-png.png" alt="Discord Server">
+    </a> 
+    <a class="social-button" href="https://youtube.com/@xyrw_shorts" target="_blank" rel="noopener noreferrer">
+        <img class="social-icon" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/youtube-app-white-icon.png" alt="YouTube Channel">
+    </a>
+    <a class="social-button" href="https://www.instagram.com/xyrw_reels/" target="_blank" rel="noopener noreferrer">
+        <img class="social-icon" src="https://www.edigitalagency.com.au/wp-content/uploads/Instagram-logo-white-PNG-large-size.png" alt="Instagram Page">
+    </a>
+</div>
+
+<p class="footer">Made by orangeidle.25 for the xyrw group.</p>
+
+<div id="popup-overlay">
+  <div id="popup-content">
+    <span id="close-btn">&times;</span>
+    <img id="popup-image" src="" alt="Shirt Image">
+    <h2 id="popup-title">Shirt Title</h2>
+    <div class="price-container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Robux_2019_Logo_Black.svg/1920px-Robux_2019_Logo_Black.svg.png" alt="Robux Icon">
+      <span>7</span>
+    </div>
+    <a id="buy-link" href="#" target="_blank" rel="noopener noreferrer">
+      <button class="buy-button">Buy on Roblox</button>
+    </a>
   </div>
-  <p>Made by orangeidle25 for the xyrw group.</p>
+</div>
+
+<script>
+    // --- Popup Script ---
+    const popupOverlay = document.getElementById('popup-overlay');
+    const closeBtn = document.getElementById('close-btn');
+    const popupImage = document.getElementById('popup-image');
+    const popupTitle = document.getElementById('popup-title');
+    const buyLink = document.getElementById('buy-link');
+
+    function openPopup(imageSrc, titleText, buyUrl) {
+      popupImage.src = imageSrc;
+      popupTitle.textContent = titleText;
+      buyLink.href = buyUrl;
+      popupOverlay.style.display = 'flex';
+    }
+
+    function closePopup() {
+      popupOverlay.style.display = 'none';
+      popupImage.src = '';
+    }
+
+    closeBtn.addEventListener('click', closePopup);
+    popupOverlay.addEventListener('click', function(event) {
+      if (event.target === popupOverlay) {
+        closePopup();
+      }
+    });
+
+    // --- Follower Count Script ---
+    document.addEventListener('DOMContentLoaded', function() {
+      const groupId = '34833060';
+      const memberCountElement = document.getElementById('member-count');
+      const apiUrl = `https://groups.roproxy.com/v1/groups/${groupId}`;
+
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.json();
+        })
+        .then(data => {
+          if (data && data.memberCount) {
+            memberCountElement.textContent = data.memberCount.toLocaleString('en-US');
+          } else {
+            memberCountElement.textContent = 'N/A';
+          }
+        })
+        .catch(error => {
+          console.error('Failed to fetch group members:', error);
+          memberCountElement.textContent = 'N/A';
+        });
+    });
+</script>
+  
 </body>
 </html>
