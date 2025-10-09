@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styleform.css">
-  <title>Moderator application form</title>
+  <link rel="stylesheet" href="dark-form-style.css"> 
+  <title>Moderator Application Form</title>
   <link rel="icon" type="image/x-icon" href="https://i.imghippo.com/files/MSGw1109U.png">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DPYMNZ8Y6Q"></script>
   <meta name="8c1375398e6535e33b12f91d96cbf16dd75a86d8" content="8c1375398e6535e33b12f91d96cbf16dd75a86d8" />
@@ -17,65 +17,56 @@
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Moderator Application</h1>
+
+<div class="header">
+    <img class="header-logo" src="https://tr.rbxcdn.com/180DAY-a4c1e0518835c39ec238f71c01a0fd58/150/150/Image/Webp/noFilter" alt="xyrw logo" width="100" height="100">
+    <h1 class="header-title">Moderator Application</h1>
+</div>
+
+<div class="container">
     <p>Apply to become a moderator for the xyrw Discord server. We are a Roblox clothing community that thrives on creativity and collaboration. Fake/troll applications will result in you getting kicked. If you don't respect Discord's TOS, you will be kicked and reported.</p>
     <form id="applicationForm">
-      <!-- rblx user -->
       <div class="form-group">
         <label for="robloxUsername">Roblox Username</label>
         <input type="text" id="robloxUsername" name="robloxUsername" required placeholder="Enter your Roblox username">
       </div>
       
-      <!-- dc user -->
       <div class="form-group">
         <label for="discordUsername">Discord Username</label>
-        <input type="text" id="discordUsername" name="discordUsername" required placeholder="Enter your Discord username">
+        <input type="text" id="discordUsername" name="discordUsername" required placeholder="Enter your Discord username (e.g., user#1234)">
       </div>
 
-      <!-- tmz -->
       <div class="form-group">
         <label for="age">Age</label>
         <input type="text" id="age" name="age" required placeholder="Enter your age">
       </div>
 
-      <!-- age -->
       <div class="form-group">
         <label for="tmz">What is your timezone? (Ex: UTC-5, UTC+2, GMT...)</label>
         <input type="text" id="tmz" name="tmz" required placeholder="Enter your timezone">
       </div>
       
-      <!-- motivation -->
       <div class="form-group">
         <label for="motivation">Why do you want to be a moderator?</label>
         <textarea id="motivation" name="motivation" required rows="4" placeholder="Tell us what inspires you to help our community"></textarea>
       </div>
       
-      <!-- exprience -->
       <div class="form-group">
         <label for="experience">Do you have any previous moderation or community management experience?</label>
         <textarea id="experience" name="experience" required rows="4" placeholder="Describe your experience (if any)"></textarea>
       </div>
       
-      <!-- English level -->
       <div class="form-group">
         <label for="english">On a scale of 10, how fluently can you speak English? (10 being the best)</label>
         <select id="english" name="english" required>
           <option value="">Select an option</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
+          <option value="1">1</option> <option value="2">2</option> <option value="3">3</option>
+          <option value="4">4</option> <option value="5">5</option> <option value="6">6</option>
+          <option value="7">7</option> <option value="8">8</option> <option value="9">9</option>
           <option value="10">10</option>
         </select>
       </div>
 
-      <!-- available -->
       <div class="form-group">
         <label for="availability">How many hours per week can you commit to moderation?</label>
         <select id="availability" name="availability" required>
@@ -87,19 +78,24 @@
         </select>
       </div>
 
-      <!-- comments -->
       <div class="form-group">
         <label for="additionalComments">Anything else you’d like us to know?</label>
         <textarea id="additionalComments" name="additionalComments" rows="4" placeholder="Additional comments..."></textarea>
       </div>
       
+      <div class="form-group">
+        <div class="h-captcha" 
+             data-sitekey="aec8fe80-ddb2-41ae-9efc-2c1ee984ffea" 
+             data-theme="dark">
+        </div>
+      </div>
       
-      <!-- Submit -->
       <div class="form-group">
         <button type="submit">Submit Application</button>
       </div>
     </form>
-  </div>
-  <script src="staff.js"></script>
+</div>
+<p class="footer">Made by orangeidle.25 for the xyrw group.</p>
+<script src="staff.js"></script>
 </body>
 </html>
