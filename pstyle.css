@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+}
