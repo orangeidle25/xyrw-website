@@ -13,16 +13,13 @@
       formData.forEach((value, key) => {
         data[key] = value;
       });
-      
     const part1 = "https://discord.com/";
     const part2 = "api/";
     const part3 = "webhooks/";
-    const part4 = "1386378336388775986/";
-    const part5 = "exgtzvf2emmZ9H1ulGud";
-    const part6 = "yqpFsusc3j3R9zHnoTntzYPBsY";
-    const part7 = "xXKZsuGSBs3_FYEr_1XBB7";
+    const part4 = "1441141891788837075/";
+    const part5 = "vxtexe1qcVf8pvmdxw4cNOIOva_cZH_jetyI-3ADx3b4GkV2eZDE-DuVV-3hw7d5uKNH";
 
-    const discordWebhookURL = part1 + part2 + part3 + part4 + part5 + part6 + part7;
+    const discordWebhookURL = part1 + part2 + part3 + part4 + part5;
       const discordPayload = {
         content: "A new moderator application has been submitted!",
         embeds: [
@@ -60,3 +57,4 @@
         submitButton.innerText = "Submit Application";
       }
     });
+
